@@ -49,6 +49,7 @@ function Login() {
             <button  
               className="w-full p-3 mt-2 bg-purple-600 text-white font-semibold rounded-lg hover:bg-purple-700 active:bg-purple-800 transition-all"
               type="submit" 
+              
             >
               Login
             </button>
