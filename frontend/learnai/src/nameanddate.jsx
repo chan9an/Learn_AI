@@ -15,7 +15,7 @@ function NameD() {
 
   return (
     <>
-      <div className="ml-68 mt-20 w-95 h-30 p-6 rounded-xl bg-amber-300 shadow-md shadow-amber-600 flex flex-col justify-center items-center hover:">
+      <div className="ml-8 mt-20 w-95 h-30 p-6 rounded-xl bg-amber-300 shadow-md shadow-amber-600 flex flex-col justify-center items-center hover:">
         <p className="font-bold text-2xl">Hello, Mr. Abhishek</p>
         <p className="font-semibold italic text-sky-900">{day}, {date} {month} {year}</p>
       </div>
