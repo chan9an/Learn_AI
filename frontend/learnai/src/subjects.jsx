@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 
 const Subjects = ({ classLevel }) => {
   const subjectsFor10th = [
@@ -13,13 +14,14 @@ const Subjects = ({ classLevel }) => {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6 px-4">
       {subjectsFor10th.map((subject, index) => (
-        <div
+        <motion.div
           key={index}
-          className="bg-gradient-to-r from-blue-400 to-blue-600 text-white p-6 rounded-xl shadow-lg flex items-center space-x-4 transition-all transform hover:scale-105 hover:shadow-2xl"
+          whileHover={{ scale: 1.05, boxShadow: "0px 10px 20px rgba(0,0,0,0.3)" }}
+          className="bg-gradient-to-r from-purple-500 to-indigo-600 text-white p-6 rounded-xl shadow-lg flex items-center space-x-4 transition-all transform hover:shadow-2xl"
         >
           <span className="text-4xl">{subject.icon}</span>
           <p className="text-xl font-semibold">{subject.name}</p>
-        </div>
+        </motion.div>
       ))}
     </div>
   );
