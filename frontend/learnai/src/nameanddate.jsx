@@ -15,11 +15,12 @@ function NameD() {
 
   return (
     <motion.div 
-      whileHover={{ scale: 1.03, boxShadow: "0px 10px 20px rgba(255, 215, 0, 0.5)" }}
-      className="w-full max-w-md p-6 rounded-2xl bg-gradient-to-r from-yellow-400 to-orange-500 shadow-lg flex flex-col justify-center items-center transition-all"
+      whileHover={{ scale: 1.02, boxShadow: "0px 8px 16px rgba(255, 215, 0, 0.4)" }}
+      className="w-full h-full p-6 rounded-2xl bg-gradient-to-r from-yellow-400 to-orange-500 shadow-lg flex flex-col justify-center items-center transition-all"
+      style={{ minHeight: "150px" }} // Ensures consistent height
     >
-      <p className="font-bold text-3xl text-gray-900">Hello, Mr. Abhishek</p>
-      <p className="font-semibold italic text-gray-700">{day}, {date} {month} {year}</p>
+      <p className="font-bold text-3xl text-gray-900 text-center">Hello, Mr. Abhishek</p>
+      <p className="font-semibold italic text-gray-800">{day}, {date} {month} {year}</p>
     </motion.div>
   );
 }

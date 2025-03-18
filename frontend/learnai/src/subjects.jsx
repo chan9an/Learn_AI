@@ -16,8 +16,8 @@ const Subjects = ({ classLevel }) => {
       {subjectsFor10th.map((subject, index) => (
         <motion.div
           key={index}
-          whileHover={{ scale: 1.05, boxShadow: "0px 10px 20px rgba(0,0,0,0.3)" }}
-          className="bg-gradient-to-r from-purple-500 to-indigo-600 text-white p-6 rounded-xl shadow-lg flex items-center space-x-4 transition-all transform hover:shadow-2xl"
+          whileHover={{ scale: 1.05, boxShadow: "0px 10px 30px rgba(212, 175, 55, 0.4)" }} // Golden glow on hover
+          className="bg-[#2a2a2a] text-white p-6 rounded-xl shadow-md flex items-center space-x-4 transition-all transform hover:shadow-lg"
         >
           <span className="text-4xl">{subject.icon}</span>
           <p className="text-xl font-semibold">{subject.name}</p>

@@ -3,29 +3,29 @@ import { motion } from "framer-motion";
 import Sidebar from "./Sidebar";
 import NameD from "./nameanddate";
 import Subjects from "./subjects";
-import { Container, Card, Typography, Box ,Grid} from "@mui/material";
+import { Container, Card, Typography, Box, Grid } from "@mui/material";
 import QuoteSection from "./Quotes";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
+import ProgressBar from "./Progressbar";
+
 const theme = createTheme({
   typography: {
-    fontFamily: "'Poppins', sans-serif", // Modern font
+    fontFamily: "'Nunito', sans-serif", // Elegant & modern font
   },
   palette: {
-    mode: "dark", // Ensures consistent dark mode
-    primary: { main: "#64ffda" }, // Cyan color
-    secondary: { main: "#ff4081" }, // Pink highlight
-    background: { default: "#121212", paper: "#1e1e1e" }, // Dark mode shades
-    text: { primary: "#ffffff", secondary: "#b0bec5" }, // Better contrast
+    mode: "dark",
+    primary: { main: "#d4af37" }, // Gold
+    secondary: { main: "#ff7043" }, // Deep Orange
+    background: { default: "#1a1a1a", paper: "#2a2a2a" }, // Softer grayish-black
+    text: { primary: "#ffffff", secondary: "#bdbdbd" },
   },
 });
+
 function Homepage() {
   return (
     <ThemeProvider theme={theme}>
-      <Box className="flex min-h-screen bg-gray-900 text-white">
-        {/* Sidebar */}
+      <Box className="flex min-h-screen bg-black text-white">
         <Sidebar />
-
-        {/* Main Content */}
         <motion.div
           className="flex-1 ml-64 p-8"
           initial={{ opacity: 0, y: 20 }}
@@ -33,15 +33,19 @@ function Homepage() {
           transition={{ duration: 0.5 }}
         >
           <Container maxWidth="lg">
-            {/* Name & Quote Section */}
-            <Grid container spacing={4} alignItems="center">
+            <Grid container spacing={4} alignItems="stretch">
               <Grid item xs={12} md={6}>
                 <Card
                   sx={{
                     padding: "24px",
                     boxShadow: 8,
                     borderRadius: "16px",
-                    backgroundColor: "background.paper",
+                    background: theme.palette.background.paper,
+                    color: "#ffffff",
+                    height: "100%",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
                     transition: "0.3s",
                     "&:hover": { transform: "scale(1.02)", boxShadow: 12 },
                   }}
@@ -50,42 +54,72 @@ function Homepage() {
                 </Card>
               </Grid>
               <Grid item xs={12} md={6}>
-                <QuoteSection />
+                <Card
+                  sx={{
+                    padding: "24px",
+                    boxShadow: 8,
+                    borderRadius: "16px",
+                    background: theme.palette.background.paper,
+                    color: "#ffffff",
+                    height: "100%",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    transition: "0.3s",
+                    "&:hover": { transform: "scale(1.02)", boxShadow: 12 },
+                  }}
+                >
+                  <QuoteSection />
+                </Card>
               </Grid>
             </Grid>
 
-            {/* Dashboard Card */}
+            {/* Dashboard Welcome Section */}
             <Card
               className="p-6 my-6 shadow-lg rounded-2xl text-white"
               sx={{
                 padding: "24px",
                 boxShadow: 8,
                 borderRadius: "16px",
-                backgroundColor: "background.paper",
+                background: "#303030",
+                color: "#ffffff",
                 transition: "0.3s",
                 "&:hover": { transform: "scale(1.02)", boxShadow: 12 },
               }}
             >
-              <Typography variant="h4" color="primary" gutterBottom>
+              <Typography variant="h4" color="primary" className="mb-4">
                 🎯 Welcome to Your Learning Dashboard!
               </Typography>
               <Typography variant="body1" color="textSecondary">
                 Track your progress, explore subjects, and excel in your studies with AI-powered learning.
               </Typography>
+
+              {/* Progress Bar Component */}
+              <Box sx={{ mt: 3 }}>
+                <ProgressBar progress={75} />
+              </Box>
             </Card>
 
-            {/* 10th Class Subjects */}
-            <motion.div
-              className="mt-8"
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5 }}
+            {/* 10th Class Subjects Section (NO EXTRA BOX) */}
+            <Card
+              className="p-6 my-6 shadow-lg rounded-2xl text-white"
+              sx={{
+                padding: "24px",
+                boxShadow: 8,
+                borderRadius: "16px",
+                background: "#303030",
+                color: "#ffffff",
+                transition: "0.3s",
+                "&:hover": { transform: "scale(1.02)", boxShadow: 12 },
+              }}
             >
-              <Typography variant="h4" color="primary" className="mb-4">
+             {/*  <Typography variant="h4" color="primary" className="mb-10">
                 📚 10th Class Subjects
-              </Typography>
+              </Typography> */}
+
+              {/* Directly rendering Subjects component */}
               <Subjects classLevel="10th" />
-            </motion.div>
+            </Card>
           </Container>
         </motion.div>
       </Box>
@@ -94,6 +128,3 @@ function Homepage() {
 }
 
 export default Homepage;
-
-
-
